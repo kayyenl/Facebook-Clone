@@ -80,6 +80,8 @@ code {
   background-color: #eff2f5;
   border-radius: 10px;
   align-items: center;
+  padding: 0 30px;
+  border-bottom: none;
 }
 
 .header__info {
@@ -93,4 +95,12 @@ code {
 
 .header__right {
   display: flex; 
+}
+
+.header__option--active > .MuiSvgIcon-root {
+  color: #2e81f4;
+}
+
+.header__option--active {
+  border-bottom: 4px solid #2e81f4;
 }

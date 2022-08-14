@@ -28,7 +28,7 @@ const Header = () => {
 
       </div>
       <div className="header__middle">
-        <div className="header__option">
+        <div className="header__option header__option--active">
           <HomeIcon fontSize="large"/>
         </div>
         <div className="header__option">
