@@ -1,6 +1,6 @@
 import './App.css';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
+import Header from './pages/Header';
+import Sidebar from './pages/Sidebar';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <div className='app__body'>
         <Sidebar />
       </div>
-      
+
     </div> 
   );
 }
