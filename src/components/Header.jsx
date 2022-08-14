@@ -50,6 +50,20 @@ const Header = () => {
         <div className="header__info">
           <Avatar />
           <h4>yenyen</h4>
+
+          <IconButton>
+            <AddIcon />
+          </IconButton>
+          <IconButton>
+            <ForumIcon />
+          </IconButton>
+          <IconButton>
+            <NotificationsActiveIcon />
+          </IconButton>
+          <IconButton>
+            <ExpandMoreIcon />
+          </IconButton>
+          
         </div>
       </div>
     </div>

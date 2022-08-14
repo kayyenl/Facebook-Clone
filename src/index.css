@@ -23,3 +23,21 @@ code {
 .header__left--img {
   height: 40px;
 }
+
+.header {
+  display: flex;
+  padding: 15px 20px;
+  justify-content: space-between;
+}
+
+.header__left {
+  
+}
+
+.header__middle {
+
+}
+
+.header__right {
+
+}
