@@ -5,6 +5,12 @@ import FlagIcon from '@mui/icons-material/Flag';
 import SubscriptionsOutlinedIcon from '@mui/icons-material/SubscriptionsOutlined';
 import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
 import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
+import Avatar from '@mui/material/Avatar';
+import { IconButton } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import ForumIcon from '@mui/icons-material/Forum';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 const Header = () => {
@@ -38,7 +44,14 @@ const Header = () => {
           <SupervisedUserCircleIcon fontSize="large"/>
         </div>
       </div>
-      <div className="header__right"></div>
+
+
+      <div className="header__right">
+        <div className="header__info">
+          <Avatar />
+          <h4>yenyen</h4>
+        </div>
+      </div>
     </div>
   );
 };
