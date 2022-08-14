@@ -104,3 +104,9 @@ code {
 .header__option--active {
   border-bottom: 4px solid #2e81f4;
 }
+
+/* sidebar row */
+
+.sidebar__row {
+  display: flex;
+}
