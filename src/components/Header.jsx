@@ -50,6 +50,7 @@ const Header = () => {
         <div className="header__info">
           <Avatar />
           <h4>yenyen</h4>
+        </div> 
 
           <IconButton>
             <AddIcon />
@@ -63,8 +64,7 @@ const Header = () => {
           <IconButton>
             <ExpandMoreIcon />
           </IconButton>
-          
-        </div>
+
       </div>
     </div>
   );
