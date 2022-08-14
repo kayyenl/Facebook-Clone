@@ -22,7 +22,7 @@ const Header = () => {
           alt="" />
         <div className="header__input">
           <SearchIcon />
-          <input type="text" />
+          <input type="text" placeholder="Search Facebook"/>
         </div>
         
 
