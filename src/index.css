@@ -118,6 +118,13 @@ code {
 
 /* sidebar row */
 
+.sidebar {
+  padding: 25px 10px;
+  flex-grow: 0.3;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+
 .sidebar__row {
   display: flex;
   align-items: center;
