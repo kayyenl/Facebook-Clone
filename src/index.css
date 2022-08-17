@@ -120,9 +120,7 @@ code {
 
 .sidebar {
   padding: 25px 10px;
-  flex-grow: 0.3;
-  flex-shrink: 1;
-  flex-basis: 0;
+  flex: 0.3;
 }
 
 .sidebar__row {
