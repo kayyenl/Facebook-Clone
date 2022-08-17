@@ -210,10 +210,20 @@ code {
 }
 
 .message__sender--top > form {
-  flex: 1;
   display: flex;
+  flex: 1;
 }
 
 .message__sender--bottom {
   display: flex;
+  flex: 1;
+}
+
+.message__sender--top > form > input {
+  outline-width: 1;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 999px;
+  margin: 0 10px;
+  background-color: #eff2f5;
 }
