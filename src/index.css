@@ -193,3 +193,27 @@ code {
 
 /* message sender portion */
 
+.message__sender {
+  display: flex;
+  margin-top: 30px;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 15px;
+  width: 100%;
+  box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.8);
+}
+
+.message__sender--top {
+  display: flex;
+  border-bottom: 1px solid #eff2f5;
+  padding: 15px;
+}
+
+.message__sender--top > form {
+  flex: 1;
+  display: flex;
+}
+
+.message__sender--bottom {
+  display: flex;
+}
