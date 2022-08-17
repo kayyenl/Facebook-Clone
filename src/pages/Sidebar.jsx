@@ -7,11 +7,12 @@ import ChatIcon from '@mui/icons-material/Chat';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
+import ProfileFace from '../assets/luffy-face.png'
 
 const Sidebar = () => {
     return (
         <div className='sidebar'>
-            <SidebarRow title='Yen Lee' src="" />
+            <SidebarRow title='Yen Lee' src={ProfileFace} />
             <SidebarRow title="COVID-19 Information Center" Icon={LocalHospitalIcon} />
 
             <SidebarRow title="Pages" Icon={EmojiFlagsIcon}/>
