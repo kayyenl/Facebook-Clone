@@ -130,3 +130,8 @@ code {
   color: #2e81f4;
 }
 
+/* Story Section */
+
+.story {
+  position: relative;
+}
