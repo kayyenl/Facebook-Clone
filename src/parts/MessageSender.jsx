@@ -12,7 +12,12 @@ const MessageSender = () => {
     function handleSubmit(event) {
         event.preventDefault()
         console.log(input)
+        //some database things
+
+        setInput("")
+        setImageUrl("")
     }
+    
     return (
         <div className='message__sender'>
             <div className="message__sender--top">
@@ -27,7 +32,7 @@ const MessageSender = () => {
                     placeholder={`Image URL (Optional)`}
                     value={imageUrl}
                     onChange={(e) => setImageUrl(e.target.value)}/>
-                    
+
                     <button onClick={handleSubmit} type='submit'></button>
                 </form>
             </div>

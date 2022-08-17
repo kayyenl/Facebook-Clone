@@ -1,4 +1,5 @@
 import React from 'react';
+import Post from '../components/Post';
 import StoryReel from '../components/StoryReel';
 import MessageSender from './MessageSender';
 
@@ -7,6 +8,10 @@ const Feed = () => {
         <div className='feed'>
             <StoryReel />
             <MessageSender />
+
+            <Post />
+            <Post />
+            <Post />
         </div>
     );
 }
