@@ -7,6 +7,7 @@ import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 
 const MessageSender = () => {
     const [input, setInput] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -17,8 +18,16 @@ const MessageSender = () => {
             <div className="message__sender--top">
                 <Avatar src={ProfileFace} />
                 <form>
-                    <input className='message__sender--input' placeholder={"What's on your mind?"} value={input} onChange={(event) => setInput(event.target.value)}/>
-                    <input placeholder={`Image URL (Optional)`}/>
+                    <input 
+                    className='message__sender--input' placeholder={"What's on your mind?"}
+                    value={input} 
+                    onChange={(e) => setInput(e.target.value)}/>
+
+                    <input 
+                    placeholder={`Image URL (Optional)`}
+                    value={imageUrl}
+                    onChange={(e) => setImageUrl(e.target.value)}/>
+                    
                     <button onClick={handleSubmit} type='submit'></button>
                 </form>
             </div>
