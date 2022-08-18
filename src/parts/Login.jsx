@@ -1,9 +1,11 @@
 import React from 'react';
 import Button from '@mui/material/Button';
+import { auth, provider } from '../firebase.js';
+
 
 const Login = () => {
     function signIn() {
-        console.log('signing in')
+        auth.signInWithPopup(provider)
     }
     return (
         <div className='login'>
