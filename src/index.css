@@ -27,6 +27,7 @@ code {
 
 .app__body {
   display: flex;
+  background-color: #eff2f5;
 }
 
 /* HEADER SECTION */
@@ -257,3 +258,15 @@ code {
 }
 
 /* the posts section */
+
+.post {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0px 5px 7px -7px rgba(0,0,0,0.75);
+}
+
+.post__image > img {
+  width: 100%;
+}
