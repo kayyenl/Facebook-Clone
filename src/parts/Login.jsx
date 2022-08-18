@@ -1,10 +1,13 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import db, { auth } from '../firebase'
+import db, { auth, provider } from '../firebase'
 
 const Login = () => {
     function signIn() {
-        console.log('hello')
+        auth.signInWithPopup(provider)
+        .then((result) => {
+            console.log(result)
+        }).catch((error) => alert(error.message))
     }
     return (
         <div className='login'>
