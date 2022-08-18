@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from '../components/Post';
 import StoryReel from '../components/StoryReel';
-import MessageSender from './MessageSender';
+import MessageSender from '../components/MessageSender';
 import ProfileFace from '../assets/luffy-face.png'
 
 const Feed = () => {

@@ -21,11 +21,14 @@ code {
 /* GENERIC SECTION */
 
 .app {
-  background-color: #f1f2f5;
+  width: 100%;
+  background-color: #eff2f5;
 }
 
 .app__body {
   display: flex;
+  width: 100%;
+  background-color: #eff2f5;
 }
 
 /* HEADER SECTION */
@@ -329,3 +332,18 @@ code {
   border-radius: 10px;
 }
 
+
+
+/* doing responsive touches prematurely */
+
+@media (max-width : 1456px) {
+  .feed {
+    padding: 30px 2%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .widgets {
+    display: none;
+  }
+}

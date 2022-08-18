@@ -2,6 +2,7 @@ import './App.css';
 import Header from './parts/Header';
 import Sidebar from './parts/Sidebar';
 import Feed from './parts/Feed';
+import Widgets from './parts/Widgets';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <div className='app__body'>
         <Sidebar />
         <Feed />
+        <Widgets />
       </div>
  
     </div> 
