@@ -270,3 +270,22 @@ code {
 .post__image > img {
   width: 100%;
 }
+
+.post__top {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  position: relative;
+}
+
+.post__avatar {
+  margin-right: 10px;
+}
+
+.post__top--info > h3 {
+  font-size: medium;
+}
+
+.post__top--info > p {
+  font-size: small;
+}

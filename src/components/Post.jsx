@@ -12,6 +12,7 @@ const Post = ({profilePic, image, username, timestamp, message}) => {
                     <h3>{username}</h3>
                     <p>{timestamp}</p>
                 </div>
+            </div>
 
                 <div className="post__bottom">
                     <p>{message}</p>
@@ -20,7 +21,6 @@ const Post = ({profilePic, image, username, timestamp, message}) => {
                 <div className="post__image">
                     <img src={image} alt="" />
                 </div>
-            </div>
         </div>
     );
 }
