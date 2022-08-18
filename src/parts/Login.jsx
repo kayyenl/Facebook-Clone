@@ -6,7 +6,7 @@ const Login = () => {
     function signIn() {
         signInWithPopup(auth, provider)
         .then((result) => {
-            console.log(result)
+            console.log(result.user)
         })
         .catch((error) => alert(error.message))
     }
