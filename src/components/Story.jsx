@@ -3,7 +3,8 @@ import React from 'react';
 
 const Story = ({image, profileSrc, title}) => {
     return (
-        <div style={{backgroundImage: `url(${image})`}} className='story'>
+        <div className='story'>
+            <div className="story__image--placeholder" style={{backgroundImage: `url(${image})`, filter: "brightness(60%)"}}></div>
             <Avatar className='story__avatar' src={profileSrc} />
             <h4>{title}</h4>
         </div>

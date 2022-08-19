@@ -12,7 +12,7 @@ import ProfileFace from '../assets/luffy-face.png'
 const Sidebar = () => {
     return (
         <div className='sidebar'>
-            <SidebarRow title='Yen Lee' src={ProfileFace} />
+            <SidebarRow title='Monkey D. Luffy' src={ProfileFace} />
             <SidebarRow title="COVID-19 Information Center" Icon={LocalHospitalIcon} />
 
             <SidebarRow title="Pages" Icon={EmojiFlagsIcon}/>
