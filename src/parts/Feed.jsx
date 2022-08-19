@@ -11,7 +11,7 @@ const Feed = () => {
 
     // onSnapshot calls everytime documents' content changes, real time connection to the database in 3 lines of code.
     useEffect(() => {
-        onSnapshot(doc(db, "posts"), (snapshot) => 
+        onSnapshot(collection(db, "posts"), (snapshot) => 
             setPosts(snapshot.docs.map((doc) => ({id: doc.id, data: doc})))
         )
     }, [])
