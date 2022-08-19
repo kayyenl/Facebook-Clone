@@ -15,7 +15,10 @@ const Post = ({profilePic, image, username, timestamp, message}) => {
 
                 <div className="post__top--info">
                     <h3>{username}</h3>
-                    <p>{new Date(timestamp?.toDate()).toUTCString()}</p>
+                    {timestamp ? 
+                        <p>{new Date(timestamp?.toDate()).toUTCString()}</p> :
+                        <p>Loading...</p>
+                    }
                 </div>
             </div>
 
