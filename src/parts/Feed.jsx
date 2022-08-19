@@ -4,14 +4,15 @@ import StoryReel from '../components/StoryReel';
 import MessageSender from '../components/MessageSender';
 import ProfileFace from '../assets/luffy-face.png';
 import db from '../firebase';
+import { collection, doc, onSnapshot } from 'firebase/firestore';
 
 const Feed = () => {
     const [posts, setPosts] = useState([])
 
     // onSnapshot calls everytime documents' content changes, real time connection to the database in 3 lines of code.
     useEffect(() => {
-        db.collection('posts').onSnapshot((snapshot) => 
-            setPosts(snapshot.docs.map(doc => ({id: doc.id, data: doc})))
+        onSnapshot(doc(db, "posts"), (snapshot) => 
+            setPosts(snapshot.docs.map((doc) => ({id: doc.id, data: doc})))
         )
     }, [])
 
