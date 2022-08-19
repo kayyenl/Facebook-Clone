@@ -1,20 +1,30 @@
-import { Avatar } from '@mui/material';
+import { Avatar, useRadioGroup } from '@mui/material';
 import React, {useState}from 'react';
 import ProfileFace from '../assets/luffy-face.png'
 import VideocamIcon from '@mui/icons-material/Videocam';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import { useStateValue } from '../StateProvider';
+import db from '../firebase';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 
 const MessageSender = () => {
     const [{ user }, dispatch] = useStateValue()
     const [input, setInput] = useState("");
     const [imageUrl, setImageUrl] = useState("");
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault()
         console.log(input)
+
         //some database things
+        await addDoc(collection(db, "posts"), {
+            message: input,
+            timestamp: serverTimestamp(),
+            profilePic: user.photoURL,
+            username: user.displayName,
+            image: imageUrl,
+        })
 
         setInput("")
         setImageUrl("")
@@ -26,7 +36,7 @@ const MessageSender = () => {
                 <Avatar src={user.photoURL} />
                 <form>
                     <input 
-                    className='message__sender--input' placeholder={`What's on your mind, ${user.displayName}?` }
+                    className='message__sender--input' placeholder={`What's on your mind, ${user.displayName}? ` }
                     value={input} 
                     onChange={(e) => setInput(e.target.value)}/>
 
