@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 // we will import these two consts later.
 
 //this should be used for the stateprovider intiailization
