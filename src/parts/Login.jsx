@@ -18,7 +18,7 @@ const Login = () => {
                 <img src="https://www.logo.wine/a/logo/Facebook/Facebook-Logo.wine.svg" alt="" />
             </div>
             <Button type="submit" onClick={signIn}>
-                Signin
+                Sign in
             </Button>
         </div>
     );
