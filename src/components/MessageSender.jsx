@@ -4,8 +4,10 @@ import ProfileFace from '../assets/luffy-face.png'
 import VideocamIcon from '@mui/icons-material/Videocam';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
+import { useStateValue } from '../StateProvider';
 
 const MessageSender = () => {
+    const [{ user }, dispatch] = useStateValue()
     const [input, setInput] = useState("");
     const [imageUrl, setImageUrl] = useState("");
 
@@ -21,10 +23,10 @@ const MessageSender = () => {
     return (
         <div className='message__sender'>
             <div className="message__sender--top">
-                <Avatar src={ProfileFace} />
+                <Avatar src={user.photoURL} />
                 <form>
                     <input 
-                    className='message__sender--input' placeholder={"What's on your mind?"}
+                    className='message__sender--input' placeholder={`What's on your mind, ${user.displayName}?` }
                     value={input} 
                     onChange={(e) => setInput(e.target.value)}/>
 

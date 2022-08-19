@@ -8,11 +8,14 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import ProfileFace from '../assets/luffy-face.png'
+import { useStateValue } from '../StateProvider';
 
 const Sidebar = () => {
+  const [{ user }, dispatch] = useStateValue()
+ 
     return (
         <div className='sidebar'>
-            <SidebarRow title='Monkey D. Luffy' src={ProfileFace} />
+            <SidebarRow title={user.displayName} src={user.photoURL} />
             <SidebarRow title="COVID-19 Information Center" Icon={LocalHospitalIcon} />
 
             <SidebarRow title="Pages" Icon={EmojiFlagsIcon}/>
