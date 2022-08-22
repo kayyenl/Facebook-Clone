@@ -78,6 +78,7 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                     { user.uid === identity ? 
                         (<div className="post__option" onClick={deletePost}>
                             <DeleteIcon />
+                            <p>Delete</p>
                         </div>) : (<div className="post__option" onClick={deletePost} style={{cursor: "not-allowed"}}>
                             <BlockIcon style={{color: "red"}}/>
                         </div>)
