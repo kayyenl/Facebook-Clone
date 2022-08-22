@@ -24,6 +24,7 @@ const MessageSender = () => {
             profilePic: user.photoURL,
             username: user.displayName,
             image: imageUrl,
+            uid: user.uid
         })
 
         setInput("")

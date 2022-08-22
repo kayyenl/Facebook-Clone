@@ -210,7 +210,6 @@ code {
   display: flex;
   padding: 30px 150px;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
