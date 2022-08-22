@@ -15,6 +15,7 @@ const MessageSender = () => {
     const [input, setInput] = useState("");
     const [imageUrl, setImageUrl] = useState("");
     const [isPhoto, setIsPhoto] = useState(false)
+    const [isComment, setIsComment] = useState(false)
     const [isDrag, setIsDrag] = useState(false)
 
 
@@ -30,7 +31,8 @@ const MessageSender = () => {
             username: user.displayName,
             image: imageUrl,
             uid: user.uid,
-            likeArray: []
+            likeArray: [],
+            commentArray: [],
         })
 
         setInput("")

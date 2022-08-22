@@ -75,6 +75,7 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                         <ChatBubbleOutlineIcon />
                         <p>Comment</p>
                     </div>
+                    
                     { user.uid === identity ? 
                         (<div className="post__option" onClick={deletePost}>
                             <DeleteIcon />
