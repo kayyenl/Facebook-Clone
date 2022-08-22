@@ -1,6 +1,6 @@
 import { Avatar } from '@mui/material';
 import React, { useState } from 'react';
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, deleteDoc, updateDoc, arrayRemove, arrayUnion } from "firebase/firestore";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import NearMeIcon from '@mui/icons-material/NearMe';
@@ -12,9 +12,10 @@ import { useStateValue } from '../StateProvider';
 import BlockIcon from '@mui/icons-material/Block';
 
 
-const Post = ({profilePic, image, username, timestamp, message, identity, auth}) => {
+const Post = ({profilePic, image, username, timestamp, message, identity, auth, likeArray}) => {
     const [{ user }, dispatch] = useStateValue()
     const postRef = doc(db, "posts", auth) 
+    const [isLike, setIsLike] = useState(likeArray.includes(user.uid))
 
     async function deletePost() {   
         if (user.uid === identity) {
@@ -22,6 +23,18 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth})
         }
     }
 
+    async function handleLike() {
+        setIsLike(!isLike)
+        if (isLike) {
+            await updateDoc(postRef, {
+                likeArray: arrayRemove(user.uid)
+            })
+        } else {
+            await updateDoc(postRef, {
+                likeArray: arrayUnion(user.uid)
+            })
+        }
+    }
     return (
         <div className='post'>
             <div className="post__top">
@@ -38,7 +51,13 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth})
             </div>
 
                 <div className="post__bottom">
-                    <p>{message}</p>
+                    <p style={{marginBottom: "12px"}}>{message}</p>
+                    {likeArray.length > 0 ? 
+                    (<div className='like__details'>
+                    <ThumbUpIcon style={{color: "white", backgroundColor: "#2e81f4", fontSize:"18px", borderRadius: "99px", border: "1px solid #2e81f4", padding: "2px"}} /> 
+                    <p className='like__number'>{likeArray.length}</p> 
+                    </div>) :
+                    <></> }
                 </div>
 
                 <div className="post__image">
@@ -46,17 +65,15 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth})
                 </div>
 
                 <div className="post__options">
-                    <div className="post__option">
+                    <div className={`post__option ${isLike ? 'post__option--like' : ''}`} 
+                    onClick={handleLike}>
                         <ThumbUpIcon />
                         <p>Like</p>
                     </div>
+                    
                     <div className="post__option">
                         <ChatBubbleOutlineIcon />
                         <p>Comment</p>
-                    </div>
-                    <div className="post__option">
-                        <NearMeIcon />
-                        <p>Share</p>
                     </div>
                     { user.uid === identity ? 
                         (<div className="post__option" onClick={deletePost}>

@@ -299,6 +299,9 @@ code {
   pointer-events: none;
 }
 
+.like__message--span {
+}
+
 .stylish__span {
   color: gray;
   padding-left: 10px;
@@ -351,6 +354,17 @@ code {
   padding: 5px 25px 10px 25px;
 }
 
+.like__number {
+  color: gray;
+  font-size: 12px;
+  padding-left: 4px;
+}
+
+.like__details {
+  display: flex;
+  align-items: center;
+}
+
 .post__options {
   padding-top: 10px;
   border-top: 1px solid lightgray;
@@ -369,6 +383,10 @@ code {
   padding: 5px;
   flex: 1;
   transition: all 450ms ease;
+}
+
+.post__option--like {
+  color: #2e81f4;
 }
 
 .post__option > p {

@@ -29,7 +29,8 @@ const MessageSender = () => {
             profilePic: user.photoURL,
             username: user.displayName,
             image: imageUrl,
-            uid: user.uid
+            uid: user.uid,
+            likeArray: []
         })
 
         setInput("")
@@ -61,7 +62,7 @@ const MessageSender = () => {
                 </div>
                 {isPhoto ? 
                     (<div className="message__sender--option" onClick={() => setIsPhoto(!isPhoto)} 
-                    style={{border: "4px solid green", transition: "all 300ms ease"}}
+                    style={{border: "4px solid green", transition: "all 300ms ease", borderRadius:"12px"}}
                     >
                         <PhotoLibraryIcon style={{color: "green"}} />
                         <h3 style={{color: "green"}}>Photo/Video</h3>
@@ -79,7 +80,7 @@ const MessageSender = () => {
                 </div>
             </div>
 
-            <div className="message__sender--dragdrop" 
+            {isPhoto ? (<div className="message__sender--dragdrop" 
             draggable="true"
             onDragEnter={() => setIsDrag(true)} 
             onDragLeave={() => setIsDrag(false)} 
@@ -93,7 +94,7 @@ const MessageSender = () => {
                 <PhotoIcon style={{color: "gray", fontSize:"38px"}}/>
                 <span className='stylish__span'>Drop the Image!</span>
             </div>)}
-            </div>
+            </div>) : <></>}
         </div>
     );
 }
