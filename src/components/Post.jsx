@@ -1,5 +1,5 @@
 import { Avatar } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { doc, deleteDoc } from "firebase/firestore";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
@@ -12,9 +12,9 @@ import { useStateValue } from '../StateProvider';
 import BlockIcon from '@mui/icons-material/Block';
 
 
-const Post = ({profilePic, image, username, timestamp, message, identity}) => {
+const Post = ({profilePic, image, username, timestamp, message, identity, auth}) => {
     const [{ user }, dispatch] = useStateValue()
-    const postRef = doc(db, "posts", identity) 
+    const postRef = doc(db, "posts", auth) 
 
     async function deletePost() {   
         if (user.uid === identity) {

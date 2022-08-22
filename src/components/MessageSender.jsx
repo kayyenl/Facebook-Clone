@@ -7,11 +7,16 @@ import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import { useStateValue } from '../StateProvider';
 import db from '../firebase';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import FileUploadIcon from '@mui/icons-material/FileUpload';
+import PhotoIcon from '@mui/icons-material/Photo';
 
 const MessageSender = () => {
     const [{ user }, dispatch] = useStateValue()
     const [input, setInput] = useState("");
     const [imageUrl, setImageUrl] = useState("");
+    const [isPhoto, setIsPhoto] = useState(false)
+    const [isDrag, setIsDrag] = useState(false)
+
 
     async function handleSubmit(event) {
         event.preventDefault()
@@ -54,14 +59,40 @@ const MessageSender = () => {
                     <VideocamIcon style={{color: "red"}}/>
                     <h3>Live Video</h3>
                 </div>
-                <div className="message__sender--option">
+                {isPhoto ? 
+                    (<div className="message__sender--option" onClick={() => setIsPhoto(!isPhoto)} 
+                    style={{border: "4px solid green", transition: "all 300ms ease"}}
+                    >
+                        <PhotoLibraryIcon style={{color: "green"}} />
+                        <h3 style={{color: "green"}}>Photo/Video</h3>
+                    </div>) :  
+                    (<div className="message__sender--option" onClick={() => setIsPhoto(!isPhoto)}
+                    >
                     <PhotoLibraryIcon style={{color: "green"}} />
                     <h3>Photo/Video</h3>
-                </div>
+                    </div>)
+                }
+               
                 <div className="message__sender--option">
                     <InsertEmoticonIcon style={{color: "orange"}}/>
                     <h3>Feeling/Activity</h3>
                 </div>
+            </div>
+
+            <div className="message__sender--dragdrop" 
+            draggable="true"
+            onDragEnter={() => setIsDrag(true)} 
+            onDragLeave={() => setIsDrag(false)} 
+            onDrop={() => setIsDrag(false)}>
+                {!isDrag ? 
+                (<div className="message__sender--paddedbox">
+                    <FileUploadIcon style={{color: "gray", fontSize:"38px"}}/>
+                    <span className='stylish__span'>Drag an image here!</span>
+                </div>) : 
+                (<div className="message__sender--paddedbox" style={{backgroundColor: "darkgray"}}>
+                <PhotoIcon style={{color: "gray", fontSize:"38px"}}/>
+                <span className='stylish__span'>Drop the Image!</span>
+            </div>)}
             </div>
         </div>
     );

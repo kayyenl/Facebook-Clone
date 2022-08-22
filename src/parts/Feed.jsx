@@ -23,7 +23,9 @@ const Feed = () => {
             <MessageSender />
 
             {posts.map((post) => (
-                <Post profilePic={post.data.profilePic} key={post.id}
+                <Post profilePic={post.data.profilePic} 
+                key={post.id}
+                auth={post.id}
                 username={post.data.username} 
                 message={post.data.message}
                 timestamp={post.data.timestamp}
