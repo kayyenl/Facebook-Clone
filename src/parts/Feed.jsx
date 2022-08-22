@@ -14,7 +14,7 @@ const Feed = () => {
         const sortCollection = collection(db, "posts")
         const q = query(sortCollection, orderBy("timestamp", "desc"))
         onSnapshot(q, (snapshot) => {
-            setPosts(snapshot.docs.map((doc) => ({id: doc.data().id, data: doc.data()})))
+            setPosts(snapshot.docs.map((doc) => ({id: doc.id, data: doc.data()})))
         })
     }, [])
 
@@ -28,7 +28,8 @@ const Feed = () => {
                 username={post.data.username} 
                 message={post.data.message}
                 timestamp={post.data.timestamp}
-                image={post.data.image} />
+                image={post.data.image}
+                identity={post.id} />
             ))}
 
             {/* <Post profilePic={ProfileFace}

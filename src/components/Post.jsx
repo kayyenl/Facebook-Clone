@@ -1,12 +1,21 @@
 import { Avatar } from '@mui/material';
 import React from 'react';
+import { doc, deleteDoc } from "firebase/firestore";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import NearMeIcon from '@mui/icons-material/NearMe';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import DeleteIcon from '@mui/icons-material/Delete';
+import db from '../firebase';
 
-const Post = ({profilePic, image, username, timestamp, message}) => {
+const Post = ({profilePic, image, username, timestamp, message, identity}) => {
+    const postRef = doc(db, "posts", identity) 
+
+    async function deletePost() {   
+        await deleteDoc(postRef)
+    }
+
     return (
         <div className='post'>
             <div className="post__top">
@@ -43,9 +52,8 @@ const Post = ({profilePic, image, username, timestamp, message}) => {
                         <NearMeIcon />
                         <p>Share</p>
                     </div>
-                    <div className="post__option">
-                        <AccountCircleIcon />
-                        <ExpandMoreOutlinedIcon />
+                    <div className="post__option" onClick={deletePost}>
+                        <DeleteIcon />
                     </div>
                 </div>
         </div>
