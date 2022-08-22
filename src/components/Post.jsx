@@ -8,12 +8,18 @@ import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import db from '../firebase';
+import { useStateValue } from '../StateProvider';
+import BlockIcon from '@mui/icons-material/Block';
+
 
 const Post = ({profilePic, image, username, timestamp, message, identity}) => {
+    const [{ user }, dispatch] = useStateValue()
     const postRef = doc(db, "posts", identity) 
 
     async function deletePost() {   
-        await deleteDoc(postRef)
+        if (user.displayName === username) {
+            await deleteDoc(postRef)
+        }
     }
 
     return (
@@ -52,9 +58,13 @@ const Post = ({profilePic, image, username, timestamp, message, identity}) => {
                         <NearMeIcon />
                         <p>Share</p>
                     </div>
-                    <div className="post__option" onClick={deletePost}>
-                        <DeleteIcon />
-                    </div>
+                    { user.displayName === username ? 
+                        (<div className="post__option" onClick={deletePost}>
+                            <DeleteIcon />
+                        </div>) : (<div className="post__option" onClick={deletePost} >
+                            <BlockIcon styles={{cursor: "notAllowed"}}/>
+                        </div>)
+                    }
                 </div>
         </div>
     );
