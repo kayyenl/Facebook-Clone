@@ -12,10 +12,13 @@ import { useStateValue } from '../StateProvider';
 import BlockIcon from '@mui/icons-material/Block';
 
 
-const Post = ({profilePic, image, username, timestamp, message, identity, auth, likeArray}) => {
+const Post = ({profilePic, image, username, timestamp, message, identity, auth, likeArray, commentArray}) => {
     const [{ user }, dispatch] = useStateValue()
     const postRef = doc(db, "posts", auth) 
     const [isLike, setIsLike] = useState(likeArray.includes(user.uid))
+    const [isComment, setIsComment] = useState(false)
+    const [comment, setComment] = useState("")
+
 
     async function deletePost() {   
         if (user.uid === identity) {
@@ -35,6 +38,20 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
             })
         }
     }
+
+    async function handleSubmit() {
+        setIsComment(false)
+        if (comment !== "") {
+            await updateDoc(postRef, {
+                commentArray: arrayUnion({
+                    user: user,
+                    comment: comment,
+                })
+            })
+            setComment("")
+        }
+    }
+
     return (
         <div className='post'>
             <div className="post__top">
@@ -65,17 +82,18 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                 </div>
 
                 <div className="post__options">
-                    <div className={`post__option ${isLike ? 'post__option--like' : ''}`} 
+                    <div className={`post__option ${isLike ? 'post__option--highlight' : ''}`} 
                     onClick={handleLike}>
                         <ThumbUpIcon />
                         <p>Like</p>
                     </div>
                     
-                    <div className="post__option">
+                    <div className={`post__option ${isComment ? 'post__option--highlight' : ''}`}
+                    onClick={() => setIsComment(!isComment)}>
                         <ChatBubbleOutlineIcon />
                         <p>Comment</p>
                     </div>
-                    
+
                     { user.uid === identity ? 
                         (<div className="post__option" onClick={deletePost}>
                             <DeleteIcon />
@@ -85,6 +103,19 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                         </div>)
                     }
                 </div>
+
+                {isComment ?  
+                <div className="post__comments">
+                    <Avatar src={user.photoURL} />
+                    <form className='post__form'>
+                        <input className='post__comment--sender'
+                        placeholder='Say what you want!'
+                        onChange={(event) => setComment(event.target.value)}
+                        value={comment} />
+                        <button className='hidden__button'
+                        onSubmit={handleSubmit}></button>
+                    </form>
+                </div> : <></>}
         </div>
     );
 }

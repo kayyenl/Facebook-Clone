@@ -31,7 +31,9 @@ const Feed = () => {
                 timestamp={post.data.timestamp}
                 image={post.data.image}
                 identity={post.data.uid}
-                likeArray={post.data.likeArray} />
+                likeArray={post.data.likeArray}
+                commentArray={post.data.commentArray}
+                 />
             ))}
 
             {/* <Post profilePic={ProfileFace}
