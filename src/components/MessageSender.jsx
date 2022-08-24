@@ -29,7 +29,7 @@ const MessageSender = () => {
             username: user.displayName,
             image: imageUrl,
             uid: user.uid,
-            likeArray: [],
+            likeArray: [], 
             commentArray: [],
         })
 
