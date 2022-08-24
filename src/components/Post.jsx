@@ -1,6 +1,6 @@
 import { Avatar } from '@mui/material';
 import React, { useState } from 'react';
-import { doc, deleteDoc, updateDoc, arrayRemove, arrayUnion, serverTimestamp } from "firebase/firestore";
+import { doc, deleteDoc, updateDoc, arrayRemove, arrayUnion } from "firebase/firestore";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import NearMeIcon from '@mui/icons-material/NearMe';
@@ -10,6 +10,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import db from '../firebase';
 import { useStateValue } from '../StateProvider';
 import BlockIcon from '@mui/icons-material/Block';
+import Comment from './Comment';
 
 
 const Post = ({profilePic, image, username, timestamp, message, identity, auth, likeArray, commentArray}) => {
@@ -18,6 +19,7 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
     const [isLike, setIsLike] = useState(likeArray.includes(user.uid))
     const [isComment, setIsComment] = useState(false)
     const [comment, setComment] = useState("")
+    const [hide, setHide] = useState(true)
 
 
     async function deletePost() {   
@@ -121,6 +123,18 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                         onClick={(e) => handleSubmit(e)}></button>
                     </form>
                 </div> : <></>}
+
+                {commentArray.length > 0 ? 
+                commentArray.map((comment) => (
+                    <>
+                    <Comment 
+                    comment={comment.details.comment}
+                    userPic={user.photoURL}
+                    timestamp={comment.details.created}
+                    username={comment.details.username}
+                    />
+                    </>
+                )) : <></>}
         </div>
     );
 }
