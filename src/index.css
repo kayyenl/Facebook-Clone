@@ -28,6 +28,7 @@ code {
 .app__body {
   display: flex;
   width: 100%;
+  min-height: 100vh;
   background-color: #eff2f5;
 }
 
@@ -354,15 +355,27 @@ code {
   padding: 5px 25px 10px 25px;
 }
 
-.like__number {
+.tray__number {
   color: gray;
   font-size: 12px;
   padding-left: 4px;
 }
 
+.post__details--tray {
+  display: flex;
+  align-items: center;
+}
+
 .like__details {
   display: flex;
   align-items: center;
+}
+
+.comment__details {
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .post__options {

@@ -10,6 +10,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import db from '../firebase';
 import { useStateValue } from '../StateProvider';
 import BlockIcon from '@mui/icons-material/Block';
+import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 import Comment from './Comment';
 
 
@@ -19,7 +20,7 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
     const [isLike, setIsLike] = useState(likeArray.includes(user.uid))
     const [isComment, setIsComment] = useState(false)
     const [comment, setComment] = useState("")
-    const [hide, setHide] = useState(true)
+    const [commentShow, setCommentShow] = useState(false)
 
 
     async function deletePost() {   
@@ -77,10 +78,18 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                 <div className="post__bottom">
                     <p style={{marginBottom: "12px"}}>{message}</p>
                     {likeArray.length > 0 ? 
-                    (<div className='like__details'>
-                    <ThumbUpIcon style={{color: "white", backgroundColor: "#2e81f4", fontSize:"18px", borderRadius: "99px", border: "1px solid #2e81f4", padding: "2px"}} /> 
-                    <p className='like__number'>{likeArray.length}</p> 
-                    </div>) :
+                    (
+                    <div className='post__details--tray'>
+                    <div className='like__details'>
+                        <ThumbUpIcon style={{color: "white", backgroundColor: "#2e81f4", fontSize:"18px", borderRadius: "99px", border: "1px solid #2e81f4", padding: "2px"}} /> 
+                        <p className='tray__number'>{likeArray.length}</p> 
+                    </div>
+                    <div className="comment__details">
+                        <ChatBubbleIcon style={{color: "white", backgroundColor: "orange", fontSize:"18px", borderRadius: "99px", border: "1px solid orange", padding: "2px"}} /> 
+                        <p className='tray__number'>{commentArray.length}</p> 
+                    </div>
+                    </div>
+                    ) :
                     <></> }
                 </div>
 
@@ -124,7 +133,7 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                     </form>
                 </div> : <></>}
 
-                {commentArray.length > 0 ? 
+                {commentArray.length > 0 && commentShow ? 
                 commentArray.map((comment) => (
                     <>
                     <Comment 
