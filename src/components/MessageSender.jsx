@@ -1,6 +1,5 @@
 import { Avatar, useRadioGroup } from '@mui/material';
 import React, {useState}from 'react';
-import ProfileFace from '../assets/luffy-face.png'
 import VideocamIcon from '@mui/icons-material/Videocam';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';

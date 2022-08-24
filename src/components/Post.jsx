@@ -41,6 +41,7 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
 
     async function handleSubmit(e) {
         e.preventDefault()
+        const dateString = new Date()
         if (comment !== "") {
             setIsComment(false)
             await updateDoc(postRef, {
@@ -49,7 +50,7 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                         userPic: user.photoURL,
                         username: user.displayName,
                         comment: comment,
-                        timestamp: serverTimestamp(),}
+                        created: dateString,}
                 })
             })
             setComment("")
