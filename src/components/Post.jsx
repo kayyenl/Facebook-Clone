@@ -1,6 +1,6 @@
 import { Avatar } from '@mui/material';
 import React, { useState } from 'react';
-import { doc, deleteDoc, updateDoc, arrayRemove, arrayUnion } from "firebase/firestore";
+import { doc, deleteDoc, updateDoc, arrayRemove, arrayUnion, serverTimestamp } from "firebase/firestore";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import NearMeIcon from '@mui/icons-material/NearMe';
@@ -39,13 +39,17 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
         }
     }
 
-    async function handleSubmit() {
-        setIsComment(false)
+    async function handleSubmit(e) {
+        e.preventDefault()
         if (comment !== "") {
+            setIsComment(false)
             await updateDoc(postRef, {
                 commentArray: arrayUnion({
-                    user: user,
-                    comment: comment,
+                    details: {
+                        userPic: user.photoURL,
+                        username: user.displayName,
+                        comment: comment,
+                        timestamp: serverTimestamp(),}
                 })
             })
             setComment("")
@@ -113,7 +117,7 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                         onChange={(e) => setComment(e.target.value)}
                         value={comment} />
                         <button className='hidden__button'
-                        onSubmit={handleSubmit}></button>
+                        onClick={(e) => handleSubmit(e)}></button>
                     </form>
                 </div> : <></>}
         </div>
