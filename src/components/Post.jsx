@@ -110,7 +110,7 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                     <form className='post__form'>
                         <input className='post__comment--sender'
                         placeholder='Say what you want!'
-                        onChange={(event) => setComment(event.target.value)}
+                        onChange={(e) => setComment(e.target.value)}
                         value={comment} />
                         <button className='hidden__button'
                         onSubmit={handleSubmit}></button>

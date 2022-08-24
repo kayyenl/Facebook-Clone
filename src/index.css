@@ -420,7 +420,7 @@ code {
   border-radius: 999px; 
 }
 
-.hidden__button {
+.hidden__button { 
   display: none;
 }
 
