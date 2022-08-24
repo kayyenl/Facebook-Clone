@@ -93,7 +93,7 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                         <button href="" 
                         className='show__comments'
                         onClick={() => setCommentShow(!commentShow)}
-                        >View Comments...</button>
+                        >{commentShow ? "Hide Comments..." : "Show Comments"}</button>
                     </div> : <></>}
                     </div>
                     ) :
