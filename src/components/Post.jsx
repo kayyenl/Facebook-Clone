@@ -77,7 +77,7 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
 
                 <div className="post__bottom">
                     <p style={{marginBottom: "12px"}}>{message}</p>
-                    {likeArray.length > 0 ? 
+                    {likeArray.length || commentArray.length > 0 ? 
                     (
                     <div className='post__details--tray'>
                     <div className='like__details'>
@@ -88,6 +88,13 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                         <ChatBubbleIcon style={{color: "white", backgroundColor: "orange", fontSize:"18px", borderRadius: "99px", border: "1px solid orange", padding: "2px"}} /> 
                         <p className='tray__number'>{commentArray.length}</p> 
                     </div>
+                    {commentArray.length > 0 ?
+                    <div className="show__comments--container">
+                        <button href="" 
+                        className='show__comments'
+                        onClick={() => setCommentShow(!commentShow)}
+                        >View Comments...</button>
+                    </div> : <></>}
                     </div>
                     ) :
                     <></> }

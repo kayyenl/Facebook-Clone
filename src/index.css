@@ -364,6 +364,7 @@ code {
 .post__details--tray {
   display: flex;
   align-items: center;
+  transition: 450ms all ease;
 }
 
 .like__details {
@@ -372,10 +373,25 @@ code {
 }
 
 .comment__details {
-  padding-left: 20px;
+  margin-left: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.show__comments--container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.show__comments {
+  text-decoration: none;
+  font-size: 16px;
+  color: gray;
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
 }
 
 .post__options {
@@ -441,10 +457,20 @@ code {
 .single__comment {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 16px;
   padding-left: 40px;
   border-top: 1px solid #eff2f5;
   width: 100%;
+}
+
+.comment__content {
+  display: flex;
+}
+
+.comment__time {
+  font-size: 14px;
+  color: gray;
 }
 
 .comment__avatar {
@@ -452,7 +478,11 @@ code {
 }
 
 .comment__words {
-  font-size: 15px;
+  font-size: 14px;
+}
+
+.comment__username {
+  font-size: 14px;
 }
 
 /* the widgets section */ 

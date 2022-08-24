@@ -4,11 +4,18 @@ import React from 'react';
 const Comment = ({comment, userPic, timestamp, username}) => {
     return (
         <div className='single__comment'>
-            <Avatar src={userPic} 
-            className="comment__avatar"/>
-            <div className="comment__words">
-                <h4>{username}</h4>
-                <p className='comment__details'>{comment}</p>
+            <div className="comment__content">
+                <Avatar src={userPic} 
+                className="comment__avatar"/>
+                <div className="comment__words">
+                    <h4 className='comment__username'>{username}:</h4>
+                    <p>{comment}</p>
+                </div>
+            </div>
+            <div className="comment__time">
+                <div className="comment__time">
+                    {timestamp.toDate().toUTCString()}
+                </div>
             </div>
         </div>
     );
