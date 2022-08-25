@@ -22,3 +22,4 @@ const Comment = ({comment, userPic, timestamp, username}) => {
 }
 
 export default Comment;
+ 
