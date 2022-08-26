@@ -36,6 +36,11 @@ const MessageSender = () => {
         setInput("")
         setImageUrl("")
     }
+
+    function droppedImage(e) {
+        setIsDrag(false)
+        console.log(e.dataTransfer.getData('URL'))
+    }
     
     return (
         <div className='message__sender'>
@@ -84,7 +89,7 @@ const MessageSender = () => {
             draggable="true"
             onDragEnter={() => setIsDrag(true)} 
             onDragLeave={() => setIsDrag(false)} 
-            onDrop={() => setIsDrag(false)}>
+            onDrop={(e) => droppedImage(e)}>
                 {!isDrag ? 
                 (<div className="message__sender--paddedbox">
                     <FileUploadIcon style={{color: "gray", fontSize:"38px"}}/>
