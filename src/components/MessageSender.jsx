@@ -41,8 +41,17 @@ const MessageSender = () => {
         e.preventDefault()
         setIsDrag(false)
         const imageURL = e.dataTransfer.getData('URL')
-        console.log(imageURL)
-        setImageUrl(imageURL)
+        const directoryFile = e.dataTransfer.files[0]
+        let localResultURL = null
+        if (directoryFile.type.startsWith("image/")) {
+            const reader = new FileReader()
+
+            reader.readAsDataURL(directoryFile)
+            reader.onload = () => {
+                setImageUrl(reader.result)
+            }
+        }
+        setImageUrl(imageURL || localResultURL)
         setIsPhoto(false)
     }
     
