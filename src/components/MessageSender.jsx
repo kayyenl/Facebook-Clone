@@ -39,7 +39,10 @@ const MessageSender = () => {
 
     function droppedImage(e) {
         setIsDrag(false)
-        console.log(e.dataTransfer.getData('URL'))
+        const imageURL = e.dataTransfer.getData('URL')
+        console.log(imageURL)
+        setImageUrl(imageURL)
+        setIsPhoto(false)
     }
     
     return (
@@ -89,6 +92,7 @@ const MessageSender = () => {
             draggable="true"
             onDragEnter={() => setIsDrag(true)} 
             onDragLeave={() => setIsDrag(false)} 
+            onDragOver={(e) => {e.preventDefault()}}
             onDrop={(e) => droppedImage(e)}>
                 {!isDrag ? 
                 (<div className="message__sender--paddedbox">
