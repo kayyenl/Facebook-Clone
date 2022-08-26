@@ -14,7 +14,7 @@ const Comment = ({comment, userPic, timestamp, username}) => {
             </div>
             <div className="comment__time">
                 <div className="comment__time">
-                    {timestamp.toDate().toUTCString()}
+                    on {timestamp.toDate().toUTCString()}
                 </div>
             </div>
         </div>
@@ -22,4 +22,4 @@ const Comment = ({comment, userPic, timestamp, username}) => {
 }
 
 export default Comment;
- 
+  
