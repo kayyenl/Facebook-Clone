@@ -145,7 +145,7 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                     <>
                     <Comment 
                     comment={comment.details.comment}
-                    userPic={user.photoURL}
+                    userPic={comment.details.userPic}
                     timestamp={comment.details.created}
                     username={comment.details.username}
                     />
