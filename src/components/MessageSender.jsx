@@ -38,6 +38,7 @@ const MessageSender = () => {
     }
 
     function droppedImage(e) {
+        e.preventDefault()
         setIsDrag(false)
         const imageURL = e.dataTransfer.getData('URL')
         console.log(imageURL)
