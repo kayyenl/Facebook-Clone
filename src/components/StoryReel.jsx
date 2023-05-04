@@ -8,7 +8,7 @@ const StoryReel = () => {
 
             <Story image="https://otakukart.com/wp-content/uploads/2021/12/luffy1.jpg" profileSrc="https://i0.wp.com/highoncinemaa.com/wp-content/uploads/2022/07/one-piece-luffy-war-declaration-cliffhanger.jpg?resize=720%2C530&ssl=1" title="Monkey D. Luffy"/>
 
-            <Story image="https://deluxe.news/wp-content/uploads/2022/05/One-Piece-Nico-Robin-Is-the-Seriess-Most-Underrated-Character.jpg" profileSrc="https://img1.ak.crunchyroll.com/i/spire2/cbfbcca44c023cb02a1c6f98a14aa0a11644116719_full.png" title="Nico Robin"/>
+            <Story image="https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/08/Nico-Robin-Featured.png" profileSrc="https://staticg.sportskeeda.com/editor/2022/03/669db-16477247716001-1920.jpg" title="Nico Robin"/>
 
             <Story image="https://staticg.sportskeeda.com/editor/2022/03/e5a1b-16487500456711-1920.jpg" profileSrc="http://images6.fanpop.com/image/photos/43200000/sanji-one-piece-43282240-1133-964.jpg" title="Vinsmoke Sanji"/>
 
