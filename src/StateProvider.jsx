@@ -8,7 +8,7 @@ export const StateProvider = ({ reducer, initialState, children}) => {
     return (
         <StateContext.Provider value={useReducer(reducer, initialState)}>  
             {children}    
-        </StateContext.Provider>
+        </StateContext.Provider> 
     );
 }
 
