@@ -112,7 +112,7 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                     <div className={`post__option ${isComment ? 'post__option--highlight' : ''}`}
                     onClick={() => setIsComment(!isComment)}>
                         <ChatBubbleOutlineIcon />
-                        <p>Comment</p>
+                        <p>Comment</p> 
                     </div>
 
                     { user.uid === identity ? 
