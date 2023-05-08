@@ -9,7 +9,7 @@ export const StateProvider = ({ reducer, initialState, children}) => {
         <StateContext.Provider value={useReducer(reducer, initialState)}>  
             {children}    
         </StateContext.Provider> 
-    );
+    ); 
 }
 
 //we use this tool when we wish to use the context.
