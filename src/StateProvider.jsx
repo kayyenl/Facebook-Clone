@@ -14,4 +14,4 @@ export const StateProvider = ({ reducer, initialState, children}) => {
 
 //we use this tool when we wish to use the context.
 export const useStateValue = () => 
-    useContext(StateContext)
+    useContext(StateContext) 
