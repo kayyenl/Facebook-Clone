@@ -1,14 +1,12 @@
+import db from '../firebase';
 import { Avatar } from '@mui/material';
 import React, { useState } from 'react';
 import { doc, deleteDoc, updateDoc, arrayRemove, arrayUnion } from "firebase/firestore";
+import { useStateValue } from '../StateProvider';
+
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
-import NearMeIcon from '@mui/icons-material/NearMe';
-import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
-import db from '../firebase';
-import { useStateValue } from '../StateProvider';
 import BlockIcon from '@mui/icons-material/Block';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 import Comment from './Comment';
@@ -145,7 +143,7 @@ const Post = ({profilePic, image, username, timestamp, message, identity, auth, 
                     <>
                     <Comment 
                     comment={comment.details.comment}
-                    userPic={user.photoURL}
+                    userPic={comment.details.userPic}
                     timestamp={comment.details.created}
                     username={comment.details.username}
                     />

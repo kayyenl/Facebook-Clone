@@ -3,7 +3,7 @@ import Post from '../components/Post';
 import StoryReel from '../components/StoryReel';
 import MessageSender from '../components/MessageSender';
 import db from '../firebase';
-import { collection, doc, onSnapshot, orderBy, query } from 'firebase/firestore';
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 
 const Feed = () => {
     const [posts, setPosts] = useState([])
